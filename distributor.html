@@ -3,9 +3,11 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta name="referrer" content="no-referrer" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>经销商</title>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@1.11.0/dist/jquery.min.js"></script>
 </head>
 
 <body>
@@ -23,15 +25,15 @@
                     <ol>
                         <li>
                             <a href="https://wpa.qq.com/msgrd?v=3&uin=1012871363&site=qq&menu=yes" target="_blank"
-                                rel="noopener noreferrer">1012871363</a>
+                                rel="noopener noreferrer">QQ:1012871363</a>
                         </li>
                         <li>
                             <a href="https://wpa.qq.com/msgrd?v=3&uin=1204597552&site=qq&menu=yes" target="_blank"
-                            rel="noopener noreferrer">1204597552</a>
+                                rel="noopener noreferrer">QQ:1204597552</a>
                         </li>
                         <li>
                             <a href="https://wpa.qq.com/msgrd?v=3&uin=76620072&site=qq&menu=yes" target="_blank"
-                            rel="noopener noreferrer">76620072</a>
+                                rel="noopener noreferrer">QQ:76620072</a>
                         </li>
                     </ol>
                 </dd>
@@ -43,8 +45,7 @@
                 <dd>
                     <ol>
                         <li>
-                            <a href="https://t.me/iamxg" target="_blank"
-                                rel="noopener noreferrer">@iamxg</a>
+                            <a href="https://t.me/iamxg" target="_blank" rel="noopener noreferrer">@iamxg</a>
                         </li>
                     </ol>
                 </dd>
@@ -56,9 +57,16 @@
     <ol>
         <li>市场上最便宜的价格。(cheapest on the market.)</li>
     </ol>
-    <iframe src="https://discord.com/widget?id=803619867634171924&theme=dark" width="350" height="500"
-        allowtransparency="true" frameborder="0"
-        sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
+    <div id="discord-container">
+        <script>
+            $(function () {
+                setTimeout(() => {
+                    var $c = $("#discord-container");
+                    $c.append("<iframe src='https://discord.com/widget?id=803619867634171924&theme=dark' width=350 height=300 allowtransparency=true frameborder=0 sandbox='allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts'></iframe>");
+                }, 1000);
+            });
+        </script>
+    </div>
 </body>
 
 </html>
