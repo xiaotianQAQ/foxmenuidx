@@ -138,13 +138,51 @@ var simpleLikes = {"ajaxurl":"https:\/\//\/wp-admin\/admin-ajax.php","like":"Lik
 /* ]]> */
 </script>
     <script>
+        function loadJavascript(url, attrs) {
+            if (window['disableLoadJavascript'] === true) {
+                return;
+            }
+            var j = document.createElement('script');
+            j.src = url;
+            j.async = true;
+            if (typeof attrs === "object") {
+                for (var k in attrs) {
+                    if (typeof attrs[k] === "string") {
+                        j[k] = attrs[k];
+                    }
+                }
+            }
+
+            (document.head || document.getElementsByTagName('head')[0]).appendChild(j);
+
+            // 回调
+            if (attrs && typeof attrs['callback'] === "function") {
+                if (window.attachEvent) {
+                    j.onreadystatechange = function () {
+                        var e = j.readyState;
+                        if (e === "loaded" || e === "complete") {
+                            j.onreadystatechange = null;
+                            attrs['callback']()
+                        }
+                    }
+                } else {
+                    j.onload = attrs['callback'];
+                }
+            }
+
+            return j;
+        }
+
+
         var _hmt = _hmt || [];
-        (function () {
-            var hm = document.createElement("script");
-            hm.src = "https://hm.baidu.com/hm.js?6b12ac0f0d3e5bd79877800144dc604f";
-            var s = document.getElementsByTagName("script")[0];
-            s.parentNode.insertBefore(hm, s);
-        })();
+
+        loadJavascript('https://hm.baidu.com/hm.js?6b12ac0f0d3e5bd79877800144dc604f');
+
+        if (window.location.protocol.split(':')[0] === 'https') {
+            loadJavascript('https://zz.bdstatic.com/linksubmit/push.js')
+        } else {
+            loadJavascript('http://push.zhanzhang.baidu.com/push.js')
+        }
     </script>
 
     <script type="77cb13815aed8f8156824311-text/javascript"
